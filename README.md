@@ -11,6 +11,20 @@ Flash JetPack 6.2 (L4T R36.4.3) to a Jetson Orin Nano 8GB Developer Kit with NVM
 - **Jumper**: For Force Recovery Mode pins (or use UEFI BIOS menu)
 - **Peripherals**: Monitor, keyboard, mouse, ethernet for Jetson
 
+## IMPORTANT: Live USB with Persistence
+
+If booting Ubuntu from a USB/SD card (live session), you **MUST** use persistent storage.
+Without it, all files are stored in RAM and an 8GB RAM laptop will crash when downloading the 15GB+ L4T files.
+
+**How to create a persistent live USB/SD:**
+1. Open Rufus on Windows
+2. Select the Ubuntu 22.04.5 ISO
+3. Select your USB/SD drive (64GB+)
+4. **Set the "Persistent partition size" slider to ~50GB**
+5. Flash it
+
+This creates a writable partition on the drive so files persist and don't eat into RAM.
+
 ## Step-by-Step Instructions
 
 ### On the Host (Ubuntu x86 laptop):
